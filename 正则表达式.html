@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script>
+    // 正则表达式
+    // 什么是正则表达式？
+    // 表示一种规则，一种模式，强大的字符串匹配工具
+    // 两种写法：
+    var re = new RegExp('a'); //js风格
+    var re = /a/ //per风格
+
+    // 第一种风格的不区分大小写
+    var re = new RegExp('b', 'i');
+    var str = 'abcdef';
+    alert(str.search(re));
+
+
+    // 第二种风格的不区分大小写
+    var re = /a/i;
+    var str = 'abcdef';
+    alert(str.search(re));
+
+
+    // 查找第一个数字的位置  \d 表示数字  转义
+    var str = 'adsf 38 25 vcdjhfkd0';
+    var re = /\d/;
+    alert(str.search(re));
+
+    // match 把所有匹配的东西，全部提取出来  查找所有的数字
+    var str = 'asdf 34 658 cns330';
+    var re = /\d/g;
+    alert(str.match(re));
+
+
+    // +表示若干
+    var str = 'asdf 34 658 cns330';
+    var re = /\d+/g;
+    alert(str.match(re));
+
+
+    // replace 替换字符串，只能替换第一个字符串
+    var str = 'abc aa rew';
+    var re = /a/;
+    alert(str.replace('a', '0'));
+
+    // 把全部的a都变成0
+    var str = 'abc aa rew';
+    var re = /a/g;
+    alert(str.replace(re, '0'));
+
+    // 元字符  方括号  abc任意一个都可以 [0-9]相当于\d
+    // [abc]pc
+
+    // [^a-z]   除了a到z   [^a-z0-9]除了英文和数字
+
+
+    // 转义字符
+    // .(点)----任意字符
+    // \d. \w. \s
+    // \D. \W. \S
+
+    //<.+>   任意个任意字符 
+
+    // \d              数字                        [0-9]
+    // \w              数字，英文，下划线           [a-z0-9]
+    // \s              空白字符   
+    // \D                                          [^0-9]
+    // \W                                          [^a-z0-9]
+    // \S              非空白字符
+
+
+    // 量词  ：个数
+    // {n} 正好出现n 次
+    // \d{8}   正好出现8次
+
+    //电话号，前一位是1，后7位是数字 
+    // [1-9]\d{7}
+
+    // {n,m} 最少n次，最多m次
+    // QQ号，第一位0-9 后面4到10个位数
+    // [1-9]\d{4,10}
+
+
+    // {n,} 最少n次，最多不限  等于+
+    // ？相当于{0,1}  可有可无
+    // *可以有，也可以没有，多少位都可以 但是不推荐使用
+
+    // 固定电话  区号和分界号可有可无
+    // 010-87596615
+    // 87596615
+
+    // (0\d{2,3}-)?[1-9]\d{7}(-\d{1,5})?
+
+
+
+  </script>
+</head>
+
+
+<body>
+
+</body>
+
+</html>
